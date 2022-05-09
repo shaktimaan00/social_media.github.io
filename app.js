@@ -2,11 +2,21 @@
 const menuItems = document.querySelectorAll('.menu-item');
 
 //messages
-const messageNotification = document.querySelector('.messages');
+const messagesNotification = document.querySelector('.messages');
+const messages = document.querySelector('.messages');
+const message = messages.querySelectorAll('.message');
+const messageSearch = document.querySelector('#message-search');
 
-const messages = document.querySelector('.mesaages');
+//THEME
+const theme = document.querySelector('.theme');
+const themeModal = document.querySelector('.customize-theme');
 
-let changeActiveItem = () => {
+
+
+// ===================SIDEBAR==============
+
+//REMOVE ACTIVE CLASS FROM EACH ITEM
+const changeActiveItem = () => {
     menuItems.forEach(item => {
         item.classList.remove('active');
     })
@@ -25,8 +35,40 @@ menuItems.forEach(item => {
     })
 })
 
-// messages
 
-messageNotification.addEventListener('click', () =>{
+// messages
+//search chats
+
+const searchMessage = () =>{
+    const val = messageSearch.value.toLowerCase();
+    //console.log(val);
+    message.forEach(chat =>{
+        let name = chat.querySelectorAll('h5').textContent.toLowerCase;
+        if(name.indexOf(val) != -1){
+            chat.style.display = 'flex';
+        }else{
+            chat.style.display = 'none';
+        }
+    })
+}
+
+//search chat
+messageSearch.addEventListener('keyup', searchMessage);
+
+
+
+messagesNotification.addEventListener('click', () =>{
     messages.style.boxShadow = '0 0 1rem var(--color-primary)';
+    messagesNotification.querySelector('.notification-count').style.display = 'none';
+    setTimeout( () =>{
+        messages.style.boxShadow = 'none';
+    }, 2000);
 })
+
+//THEME-DISPLAY CUSTOMIZATION
+
+const openThemeModal = () =>{
+    themeModal.style.display = 'grid';
+}
+
+theme.addEventListener('click', openThemeModal);
