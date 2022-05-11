@@ -39,31 +39,31 @@ menuItems.forEach(item => {
 // messages
 //search chats
 
-const searchMessage = () =>{
-    const val = messageSearch.value.toLowerCase();
-    //console.log(val);
-    message.forEach(chat =>{
-        let name = chat.querySelectorAll('h5').textContent.toLowerCase;
-        if(name.indexOf(val) != -1){
-            chat.style.display = 'flex';
-        }else{
-            chat.style.display = 'none';
-        }
-    })
-}
+// const searchMessage = () =>{
+//     const val = messageSearch.value.toLowerCase();
+//     //console.log(val);
+//     message.forEach(chat =>{
+//         let name = chat.querySelectorAll('h5').textContent.toLowerCase;
+//         if(name.indexOf(val) != -1){
+//             chat.style.display = 'flex';
+//         }else{
+//             chat.style.display = 'none';
+//         }
+//     })
+// }
 
 //search chat
-messageSearch.addEventListener('keyup', searchMessage);
+// messageSearch.addEventListener('keyup', searchMessage);
 
 
 
-messagesNotification.addEventListener('click', () =>{
-    messages.style.boxShadow = '0 0 1rem var(--color-primary)';
-    messagesNotification.querySelector('.notification-count').style.display = 'none';
-    setTimeout( () =>{
-        messages.style.boxShadow = 'none';
-    }, 2000);
-})
+// messagesNotification.addEventListener('click', () =>{
+//     messages.style.boxShadow = '0 0 1rem var(--color-primary)';
+//     messagesNotification.querySelector('.notification-count').style.display = 'none';
+//     setTimeout( () =>{
+//         messages.style.boxShadow = 'none';
+//     }, 2000);
+// })
 
 //THEME-DISPLAY CUSTOMIZATION
 
